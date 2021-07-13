@@ -1,0 +1,11 @@
+[package]
+name = "slam_syntax"
+edition = "2018"
+version = "0.1.0"
+authors = ["Hans W. Uhlig <huhlig@gmail.com>"]
+description = "Parser and Structure of SLAM Syntax"
+license = "Apache2 OR MIT"
+keywords = ["slam", "ast", "syntax"]
+
+[dependencies]
+nom = "6"

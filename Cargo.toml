@@ -1,0 +1,18 @@
+[package]
+name = "slam"
+edition = "2018"
+version = "0.1.0"
+authors = ["Hans W. Uhlig <huhlig@gmail.com>"]
+description = "Statistical and Linear Algebra Machine (SLAM) Embeddable Package"
+
+[dependencies]
+slam_engine = { path = "crates/slam_engine" }
+slam_server = { path = "crates/slam_server" }
+slam_syntax = { path = "crates/slam_syntax" }
+
+[workspace]
+members = [
+    "crates/slam_engine",
+    "crates/slam_server",
+    "crates/slam_syntax"
+]

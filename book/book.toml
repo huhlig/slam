@@ -1,0 +1,6 @@
+[book]
+authors = ["Hans W. Uhlig"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Statistics and Linear Algebra Machine (SLAM)"

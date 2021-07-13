@@ -1,0 +1,33 @@
+name: Publish Documentation
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    name: Publish Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Source
+        uses: actions/checkout@v2
+      - name: Build Documentation
+        uses: actions-rs/cargo@v1
+        with:
+          command: rustdoc
+          args: --verbose
+      - name: Patch Docs
+        run: |
+          echo '<meta http-equiv="refresh" content="0; url=slam/index.html" /> ' > target/doc/index.html
+      - name: Setup mdBook
+        uses: peaceiris/actions-mdbook@v1
+        with:
+          mdbook-version: 'latest'
+      - name: Build Book
+        run: mdbook build book --dest-dir target/doc/slam_book
+      - name: Publish Documentation to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          folder: target/doc
+          branch: gh-pages

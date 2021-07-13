@@ -1,0 +1,10 @@
+[package]
+name = "slam_server"
+edition = "2018"
+version = "0.1.0"
+authors = ["Hans W. Uhlig <huhlig@gmail.com>"]
+description = "Statistical and Linear Algebra Machiine Model Server"
+license = "Apache2 OR MIT"
+keywords = ["slam", "server"]
+
+[dependencies]

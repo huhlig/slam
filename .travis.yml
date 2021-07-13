@@ -1,0 +1,23 @@
+language: rust
+sudo: false
+
+cache:
+  - cargo
+
+rust:
+  - stable
+  - beta
+  - nightly
+  
+jobs:
+  allow_failures:
+    - rust: nightly
+  fast_finish: true
+
+before_script:
+  - (test -x $HOME/.cargo/bin/cargo-install-update || cargo install cargo-update)
+  - (test -x $HOME/.cargo/bin/mdbook || cargo install mdbook)
+  - cargo install-update -a
+
+script:
+  - mdbook build book  && mdbook test book
